@@ -1,26 +1,30 @@
-<script type="text/javascript">
-$(document).ready(function() {
-    var events_array = [
-      <% @user.attendances.each do |attendance| %>
-        {
-            startDate: new Date(<%= [attendance.date.year, attendance.date.month - 1, attendance.date.day, attendance.from_hour, attendance.from_minute].join ', ' %>),
-            endDate: new Date(<%= [attendance.date.year, attendance.date.month - 1, attendance.date.day, attendance.to_hour, attendance.to_minute].join ', ' %>),
-            title: "<%= attendance.presence %>",
-            description: "<%= attendance.message %>",
-            priority: <%= attendance.priority_to_num %>, // 1 = Low, 2 = Medium, 3 = Urgent
-            frecuency: <%= attendance.frequency_to_num %> // 1 // 1 = Daily, 2 = Weekly, 3 = Monthly, 4 = Yearly
-        }
-      <% end.join ',' %>
-    ];
-
-    jQuery("#calendar").dp_calendar({
-        events_array: events_array
-    });
-});
-</script>
-
 <span>You're browsing attendance plan for <i><%= @user.email %></i></span>
 
-<br />
+<% if @user.attendances.blank? %>
+  <span>No plans are set yet</span>
+<% else %>
+  <script type="text/javascript">
+  $(document).ready(function() {
+      var events_array = [
+        <% @user.attendances.each do |attendance| %>
+          {
+              startDate: new Date(<%= [attendance.date.year, attendance.date.month - 1, attendance.date.day, attendance.from_hour, attendance.from_minute].join ', ' %>),
+              endDate: new Date(<%= [attendance.date.year, attendance.date.month - 1, attendance.date.day, attendance.to_hour, attendance.to_minute].join ', ' %>),
+              title: "<%= attendance.presence %>",
+              description: "<%= attendance.message %>",
+              priority: <%= attendance.priority_to_num %>, // 1 = Low, 2 = Medium, 3 = Urgent
+              frecuency: <%= attendance.frequency_to_num %> // 1 // 1 = Daily, 2 = Weekly, 3 = Monthly, 4 = Yearly
+          }
+        <% end.join ',' %>
+      ];
 
-<div id="calendar"></div>
+      jQuery("#calendar").dp_calendar({
+          events_array: events_array
+      });
+  });
+  </script>
+
+  <br />
+
+  <div id="calendar"></div>
+<% end %>
