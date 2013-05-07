@@ -1451,7 +1451,12 @@ body .ui-tooltip {
 
  */
 
-@import url('http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300');
+@font-face {
+  font-family: 'Open Sans Condensed';
+  font-style: normal;
+  font-weight: 300;
+  src: local('Open Sans Cond Light'), local('/assets/OpenSans-CondensedLight'), url(http://themes.googleusercontent.com/static/fonts/opensanscondensed/v6/gk5FxslNkTTHtojXrkp-xF1YPouZEKgzpqZW9wN-3Ek.woff) format('woff');
+}
 
 .dp_calendar .clear { clear:both; }
 
@@ -1547,7 +1552,7 @@ body .ui-tooltip {
 }
 
 .dp_calendar .div_dates .day_name h1 {
-    font-size:70px !important;
+    font-size:42px !important;
     float:left;
     font-family: 'Open Sans Condensed', sans-serif;
     text-transform:uppercase;
