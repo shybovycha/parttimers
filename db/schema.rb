@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(:version => 20130507150458) do
     t.text     "message"
     t.string   "presence",      :default => "present"
     t.string   "priority",      :default => "low"
-    t.string   "frequency",     :default => ""
+    t.string   "frequency"
     t.datetime "created_at",                           :null => false
     t.datetime "updated_at",                           :null => false
     t.integer  "admin_user_id"
