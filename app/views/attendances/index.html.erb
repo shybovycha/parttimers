@@ -1,7 +1,8 @@
-<span>You're browsing attendance plan for <i><%= @user.email %></i></span>
+<div>You're browsing attendance plan for <i><%= @user.email %></i></div>
 
 <% if @user.attendances.blank? %>
-  <span>No plans are set yet</span>
+  <br />
+  <div>No plans are set yet</div>
 <% else %>
   <script type="text/javascript">
   $(document).ready(function() {
@@ -14,8 +15,8 @@
               description: "<%= attendance.message %>",
               priority: <%= attendance.priority_to_num %>, // 1 = Low, 2 = Medium, 3 = Urgent
               frecuency: <%= attendance.frequency_to_num %> // 1 // 1 = Daily, 2 = Weekly, 3 = Monthly, 4 = Yearly
-          }
-        <% end.join ',' %>
+          },
+        <% end %>
       ];
 
       jQuery("#calendar").dp_calendar({
