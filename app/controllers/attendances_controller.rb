@@ -10,5 +10,9 @@ class AttendancesController < InheritedResources::Base
 
         @user ||= current_admin_user
         @user ||= AdminUser.first
+
+        if @user.blank?
+            redirect_to 'admin/dashboard#index'
+        end
     end
 end
