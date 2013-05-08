@@ -238,7 +238,7 @@
                         } else {
                             $(li_event_start_time).html((startDate.getHours() > 12 ? "PM" : "AM") + " " + dp_str_pad((startDate.getHours() > 12 ? (startDate.getHours() - 12) : startDate.getHours()), 2, "0", "STR_PAD_LEFT") + ":" + dp_str_pad(startDate.getMinutes(), 2, "0", "STR_PAD_LEFT"))
                         }
-                        if (typeof(endDate) !== 'undefined' && typeof(endDate.getHours()) !== 'undefined' && typeof(endDate.getMinutes()) !== 'undefined') {
+                        if (typeof(endDate) !== 'undefined' && typeof(endDate.getHours()) !== 'undefined' && typeof(endDate.getMinutes()) !== 'undefined' && (((endDate.getHours() == startDate.getHours()) && (endDate.getMinutes() > startDate.getMinutes())) || (endDate.getHours() > startDate.getHours()))) {
                             li_event_end_time = $('<div />').addClass('time');
                             if (!format_ampm) {
                                 $(li_event_end_time).html(dp_str_pad(endDate.getHours(), 2, "0", "STR_PAD_LEFT") + ":" + dp_str_pad(endDate.getMinutes(), 2, "0", "STR_PAD_LEFT"))
