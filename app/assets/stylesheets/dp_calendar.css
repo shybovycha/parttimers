@@ -194,6 +194,12 @@
     line-height:100%;
 }
 
+.dp_calendar .calendar_list #list li .spacer {
+    margin: 0 10px;
+    float: left;
+    line-height: 42px;
+}
+
 .dp_calendar .calendar_list #list li .time {
     -moz-border-radius: 3px;
     border-radius: 3px;

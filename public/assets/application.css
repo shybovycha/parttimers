@@ -1648,6 +1648,12 @@ body .ui-tooltip {
 }
 
 .dp_calendar .calendar_list #list li .time {
+    margin: 0 10px;
+    float: left;
+    line-height: 50px;
+}
+
+.dp_calendar .calendar_list #list li .time {
     -moz-border-radius: 3px;
     border-radius: 3px;
     border:1px solid #ccc;
