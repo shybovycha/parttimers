@@ -10,7 +10,9 @@
         <% @user.attendances.map do |attendance| %>
           {
               startDate: new Date(<%= [attendance.date.year, attendance.date.month - 1, attendance.date.day, attendance.from_hour, attendance.from_minute].join ', ' %>),
+              <% if attendance.frequency_to_num > 0 %>
               endDate: new Date(<%= [attendance.date.year, attendance.date.month - 1, attendance.date.day, attendance.to_hour, attendance.to_minute].join ', ' %>),
+              <% end %>
               title: "<%= attendance.presence %>",
               description: "<%= attendance.message %>",
               priority: <%= attendance.priority_to_num %>, // 1 = Low, 2 = Medium, 3 = Urgent
