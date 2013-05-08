@@ -20,6 +20,8 @@ class Attendance < ActiveRecord::Base
     :inclusion => %w(urgent medium low),
     :presence => true
 
+  # TODO: validate if `to` is later than `from`
+
   #validates :frequency,
     # :inclusion => %w(daily weekly monthly yearly),
     #:presence => false
